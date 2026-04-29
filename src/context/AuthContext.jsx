@@ -30,6 +30,19 @@ export function AuthProvider({ children }) {
     return data.user
   }, [])
 
+  const sendOTP = useCallback(async (email) => {
+    await api.post('/api/auth/send-otp', { email })
+  }, [])
+
+  const verifyOTP = useCallback(async (email, otp) => {
+    const { data } = await api.post('/api/auth/verify-otp', { email, otp })
+    localStorage.setItem('access_token',  data.access_token)
+    localStorage.setItem('refresh_token', data.refresh_token)
+    api.defaults.headers.common['Authorization'] = `Bearer ${data.access_token}`
+    setUser(data.user)
+    return data.user
+  }, [])
+
   const register = useCallback(async (payload) => {
     const { data } = await api.post('/api/auth/register', payload)
     localStorage.setItem('access_token',  data.access_token)
@@ -50,7 +63,7 @@ export function AuthProvider({ children }) {
   const updateUser = useCallback((updated) => setUser(updated), [])
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, updateUser }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, updateUser, sendOTP, verifyOTP }}>
       {children}
     </AuthContext.Provider>
   )

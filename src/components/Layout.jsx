@@ -243,7 +243,7 @@ const s = {
   userRole: { fontSize: 10, color: 'var(--muted)', marginTop: 1 },
   logoutBtn: { background: 'transparent', border: 'none', color: 'var(--muted)', fontSize: 16, cursor: 'pointer', padding: 2, flexShrink: 0 },
 
-  loginBtn: { padding: '10px', borderRadius: 10, border: 'none', background: 'linear-gradient(135deg, var(--green), var(--green2))', color: 'var(--text)', fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-display)', letterSpacing: '0.3px', textShadow: '0 1px 2px rgba(0,0,0,0.2)' },
+  loginBtn: { padding: '10px', borderRadius: 10, border: 'none', background: 'linear-gradient(135deg, var(--green), var(--green2))', color: '#000000', fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-display)', letterSpacing: '0.3px' },
 
   main: { flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', position: 'relative', zIndex: 1 },
 

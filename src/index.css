@@ -87,6 +87,7 @@ input, textarea, select { font-family: var(--font-body); }
   to   { opacity: 1; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+.spin { display: inline-block; animation: spin 1s linear infinite; }
 
 /* Buddy AI Styles */
 @keyframes blobPulse {
